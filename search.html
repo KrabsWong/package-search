@@ -13,23 +13,25 @@
     </head>
 
     <body>
-        <h1 id="extension-title">Search package from TAONPM</h1>
-        <hr />
-        <div class="input-group">
-            <input type="text" class="form-control" id="keywordsOrName" placeholder="Keywords or Package name..." />
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-success" id="doSearch">Search</button>
+        <div id="wrap">
+            <h1 id="extension-title">Search package from TAONPM</h1>
+            <hr />
+            <div class="input-group">
+                <input type="text" class="form-control" id="keywordsOrName" placeholder="Keywords or Package name..." />
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-success" id="doSearch">Search</button>
+                </div>
             </div>
-        </div>
-        <div id="result"></div>
-        <hr />
-        <div id="thanks">
-            Powered by: <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/linkedin/dustjs" target="_blank">Dustjs</a>, <a href="https://github.com/tobiasahlin/SpinKit" target="_blank">SpinKit</a>
-        </div>
-        <div id="loading" class="util-hidden">
-            <div class="spinner">
-                <div class="cube1"></div>
-                <div class="cube2"></div>
+            <div id="result"></div>
+            <hr />
+            <div id="thanks">
+                Powered by: <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/linkedin/dustjs" target="_blank">Dustjs</a>, <a href="https://github.com/tobiasahlin/SpinKit" target="_blank">SpinKit</a>
+            </div>
+            <div id="loading" class="util-hidden">
+                <div class="spinner">
+                    <div class="cube1"></div>
+                    <div class="cube2"></div>
+                </div>
             </div>
         </div>
         <textarea class="util-hidden" id="page-tpl">
@@ -53,24 +55,18 @@
                 <div role="tabpanel" class="tab-pane{#keywordsActive} active{/keywordsActive}" id="keywords">
                     <table class="table table-striped" id="keywords-result">
                         {#keywords}
-                        <tr>
-                            <td class="package-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></td>
-                            <td class="package-description">{description}</td>
-                        </tr>
+                        <h2 class="package-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></h2>
+                        <p class="package-description">{description}</p>
                         {/keywords}
                     </table>
                 </div>
                 {/hasKeywords}
                 {#hasPackages}
                 <div role="tabpanel" class="tab-pane{#packagesActive} active{/packagesActive}" id="package">
-                    <table class="table table-striped" id="package-result">
-                        {#packages}
-                        <tr>
-                            <td class="package-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></td>
-                            <td class="package-description">{description}</td>
-                        </tr>
-                        {/packages}
-                    </table>
+                    {#packages}
+                    <h2 class="package-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></h2>
+                    <p class="package-description">{description}</p>
+                    {/packages}
                 </div>
                 {/hasPackages}
             </div>
