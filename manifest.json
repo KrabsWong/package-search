@@ -5,8 +5,12 @@
     "description": "Search package from taobao npm via keywords or package names.",
     "browser_action": {
         "default_title": "TNPM Search",
-        "default_icon": "image/icon_crab.png",
+        "default_icon": "image/icon_search_48.png",
         "default_popup": "search.html"
+    },
+    "icons": {
+        "48": "image/icon_search_48.png",
+        "128": "image/icon_search_128.png"
     },
     "permissions": [
         "https://*/*",
