@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "XNPM Search",
+    "version": "0.0.1",
+    "description": "Search package from taobao npm via keywords or package names.",
+    "browser_action": {
+        "default_title": "TNPM Search",
+        "default_icon": "image/icon_crab.png",
+        "default_popup": "search.html"
+    },
+    "permissions": [
+        "https://*/*",
+        "http://*/*",
+        "http://localhost/",
+        "http://127.0.0.1/"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

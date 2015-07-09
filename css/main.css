@@ -1,0 +1,84 @@
+/* 全局样式 */
+body {width: 370px; padding: 10px;}
+.util-hidden {display: none;}
+
+/* popup样式 */
+#extension-title {font-size: 20px;}
+#result {margin-top: 10px;}
+#match-name {font-size: 18px;}
+#match-description {font-size: 14px; color: #999; margin-bottom: 20px;}
+.package-name {color: #333; font-weight: bold; width: 150px;}
+.package-description {color: #999;}
+#thanks {text-align: center; font-size: 10px;}
+#thanks, #thanks a {color: #AAA;}
+
+/* 重写框架样式 */
+.tab-pane {padding: 10px 0 0;}
+
+/* loading样式 */
+/* background: rgba(41, 128, 185, 0.8) */
+#loading {position: fixed; left: 0; right: 0; bottom: 0; top: 0; background: rgba(255, 255, 255, 0.8); z-index: 100;}
+
+.spinner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
+    left: 50%;
+    top: 50%;
+}
+
+.cube1, .cube2 {
+    background-color: #333;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-animation: cubemove 1.8s infinite ease-in-out;
+    animation: cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+@-webkit-keyframes cubemove {
+    25% {
+        -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5)
+    }
+    50% {
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg)
+    }
+    75% {
+        -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)
+    }
+    100% {
+        -webkit-transform: rotate(-360deg)
+    }
+}
+
+@keyframes cubemove {
+    25% {
+        transform: translateX(42px) rotate(-90deg) scale(0.5);
+        -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+    }
+    50% {
+        transform: translateX(42px) translateY(42px) rotate(-179deg);
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+    }
+    50.1% {
+        transform: translateX(42px) translateY(42px) rotate(-180deg);
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+    }
+    75% {
+        transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+        -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+    }
+    100% {
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+    }
+}
