@@ -12,7 +12,7 @@ chrome.storage.sync.get({
     linkURL: ''
 }, function(items) {
     requestURL = items.searchURL || requestURL;
-    packageURL = items.linkURL || requestURL;
+    packageURL = items.linkURL || packageURL;
 });
 
 $(function() {
