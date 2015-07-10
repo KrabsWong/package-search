@@ -3,19 +3,20 @@
 // found in the LICENSE file.
 "use strict";
 
-const packageURLPrefix = 'http://npm.taobao.org/browse/keyword/';
-let url = packageURLPrefix + '{key}?type=json';
+const hosts = 'http://npm.taobao.org';
+let requestURL = hosts + '/browse/keyword/{key}?type=json';
+let packageURLPrefix = hosts + '/package/';
 
 $(function() {
     let sendingRequest = false;
     $('#doSearch').click(function() {
-        var searchString = $('#keywordsOrName').val();
+        let searchString = $('#keywordsOrName').val();
 
         /* 避免重复发请求 */
         if(searchString && !sendingRequest) {
             sendingRequest = true;
             $('#loading').show();
-            $.getJSON(url.replace(/\{key\}/g, searchString), function(data) {
+            $.getJSON(requestURL.replace(/\{key\}/g, searchString), function(data) {
                 sendingRequest = false;
                 renderPage(data);
                 $('#loading').hide();

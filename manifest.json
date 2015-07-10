@@ -3,7 +3,7 @@
     "name": "搜TaoNPM",
     "short_name": "搜包",
     "author": "Pang Xie",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "在TaoNPM上搜索指定的包.",
     "homepage_url": "https://github.com/yPangXie/package-search",
     "browser_action": {
