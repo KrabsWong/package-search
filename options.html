@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/options.css" />
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/options.js"></script>
+        <title>配置页面</title>
+    </head>
+
+    <body>
+        <div id="wrap">
+            <div class="form-group">
+                <label for="npmURL">搜索规则</label>
+                <input type="email" class="form-control" id="npmSearchURL" placeholder="http://npm.taobao.org/browse/keyword/{key}?type=json">
+            </div>
+            <div class="form-group">
+                <label for="npmURL">访问地址规则</label>
+                <input type="email" class="form-control" id="npmLinkURL" placeholder="http://npm.taobao.org/package/{key}">
+            </div>
+            <button id="set" class="btn btn-primary">设置</button>
+            <button id="reset" class="btn btn-default">重置</button>
+            <span id="status" class="util-small text-success"></span>
+            <hr />
+            <div class="util-gray">
+                <p>配置说明</p>
+                <ul>
+                    <li>搜索和地址规则中, 使用<code>{key}</code>作为包名占位符</li>
+                    <li>需要保留协议名</li>
+                    <li>插件使用的默认接口是<br /><code>http://npm.taobao.org/browse/keyword/{key}?type=json</code></li>
+                    <li>重置之后将使用插件默认接口</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

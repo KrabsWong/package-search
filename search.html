@@ -3,40 +3,44 @@
     <head>
         <meta charset="utf-8" />
         <title>NPM Package搜索</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/dust-full.min.js"></script>
-        <script src="js/dust-helpers.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/dust-full.min.js"></script>
+        <script src="js/lib/dust-helpers.js"></script>
         <script src="js/search.js"></script>
     </head>
 
     <body>
         <div id="wrap">
-            <h1 id="extension-title">Search package from TAONPM</h1>
+            <h1 id="extension-title">搜索xNPM上的包(默认TaoNPM)</h1>
             <hr />
             <div class="input-group">
-                <input type="text" class="form-control" id="keywordsOrName" placeholder="Keywords or Package name..." />
+                <input type="text" class="form-control" id="keywordsOrName" placeholder="包名或关键字.." />
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-success" id="doSearch">Search</button>
+                    <button type="button" class="btn btn-success" id="doSearch">搜索</button>
                 </div>
             </div>
             <div id="result"></div>
             <hr />
             <div id="thanks">
-                Powered by: <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/linkedin/dustjs" target="_blank">Dustjs</a>, <a href="https://github.com/tobiasahlin/SpinKit" target="_blank">SpinKit</a>
+                强力驱动: <a href="https://jquery.com/" target="_blank">jQuery</a>, <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>, <a href="https://github.com/linkedin/dustjs" target="_blank">Dustjs</a>, <a href="https://github.com/tobiasahlin/SpinKit" target="_blank">SpinKit</a>
             </div>
             <div id="loading" class="util-hidden">
                 <div class="spinner">
                     <div class="cube1"></div>
                     <div class="cube2"></div>
                 </div>
+                <div id="timeout-tips" class="util-small text-info util-hidden">
+                    加载时间过长, 疑似请求超时. 请确保配置的接口地址正确, 然后重新打开插件尝试搜索.<br />
+                    要是竟然还不行, 我来帮你查 <code>pangxie.wdy#gmail.com</code></div>
             </div>
         </div>
         <textarea class="util-hidden" id="page-tpl">
             {#match}
-                <h2 id="match-name"><a href="{packageURLPrefix}{name}" target="_blank">{name}</a></h2>
+                <h2 id="match-name"><a href="{url}" target="_blank">{name}</a></h2>
                 <p id="match-description">{description}</p>
             {/match}
 
@@ -55,7 +59,7 @@
                 <div role="tabpanel" class="tab-pane{#keywordsActive} active{/keywordsActive}" id="keywords">
                     <table class="table table-striped" id="keywords-result">
                         {#keywords}
-                        <h2 class="package-name"><a href="{packageURLPrefix}{name}" target="_blank">{name}</a></h2>
+                        <h2 class="package-name"><a href="{url}" target="_blank">{name}</a></h2>
                         <p class="package-description">{description}</p>
                         {/keywords}
                     </table>
@@ -64,7 +68,7 @@
                 {#hasPackages}
                 <div role="tabpanel" class="tab-pane{#packagesActive} active{/packagesActive}" id="package">
                     {#packages}
-                    <h2 class="package-name"><a href="{packageURLPrefix}{name}" target="_blank">{name}</a></h2>
+                    <h2 class="package-name"><a href="{url}" target="_blank">{name}</a></h2>
                     <p class="package-description">{description}</p>
                     {/packages}
                 </div>
@@ -73,7 +77,7 @@
             {:else}
             <div class="alert alert-danger" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                No macthed!</div>
+                没有搜到orz..</div>
             {/hasResult}
         </textarea>
     </body>

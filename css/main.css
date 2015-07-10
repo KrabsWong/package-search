@@ -1,15 +1,14 @@
 /* 全局样式 */
 body {width: 370px;}
-.util-hidden {display: none;}
 
 /* popup样式 */
-#wrap {margin: 10px;}
 #extension-title {font-size: 20px;}
 #result {margin-top: 10px;}
 #match-name {font-size: 18px;}
 #match-description {font-size: 14px; color: #999; margin-bottom: 20px;}
 .package-name {color: #333; font-weight: bold; font-size: 18px;}
 .package-description {color: #999;}
+#timeout-tips {position: absolute; bottom: 5px; left: 20px; right: 20px;}
 #thanks {text-align: center; font-size: 10px;}
 #thanks, #thanks a {color: #AAA;}
 

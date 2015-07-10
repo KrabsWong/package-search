@@ -3,9 +3,17 @@
 // found in the LICENSE file.
 "use strict";
 
-const hosts = 'http://npm.taobao.org';
-let requestURL = hosts + '/browse/keyword/{key}?type=json';
-let packageURLPrefix = hosts + '/package/';
+let requestURL = 'http://npm.taobao.org/browse/keyword/{key}?type=json';
+let packageURL = 'http://npm.taobao.org/package/{key}';
+
+/* 获取配置信息 */
+chrome.storage.sync.get({
+    searchURL: '',
+    linkURL: ''
+}, function(items) {
+    requestURL = items.searchURL || requestURL;
+    packageURL = items.linkURL || requestURL;
+});
 
 $(function() {
     let sendingRequest = false;
@@ -16,17 +24,34 @@ $(function() {
         if(searchString && !sendingRequest) {
             sendingRequest = true;
             $('#loading').show();
+
+            /* 检测请求超时 */
+            var timeoutChecking = setTimeout(function() {
+                $('#timeout-tips').show();
+            }, 5000);
+
             $.getJSON(requestURL.replace(/\{key\}/g, searchString), function(data) {
                 sendingRequest = false;
-                renderPage(data);
+                renderPage(searchString, data);
+
+                /* 隐藏loading层 */
                 $('#loading').hide();
+                clearInterval(timeoutChecking);
             });
         }
     });
 });
 
 /* 处理结果, 渲染模板 */
-function renderPage(data) {
+function renderPage(searchString, data) {
+    data.keywords && data.keywords.forEach(function(item) {
+        item.url = packageURL.replace(/\{key\}/g, searchString);
+    });
+
+    data.packages && data.packages.forEach(function(item) {
+        item.url = packageURL.replace(/\{key\}/g, searchString);
+    });
+
     let dataObj = {
         hasResult: data.keywords.length || data.packages.length || data.match,
         hasMatch: data.match,
@@ -38,8 +63,7 @@ function renderPage(data) {
         packages: data.packages,
         keywords: data.keywords,
         packagesCount: data.packages.length,
-        keywordsCount: data.keywords.length,
-        packageURLPrefix: packageURLPrefix
+        keywordsCount: data.keywords.length
     };
 
     let compiled = dust.compile($('#page-tpl').val(), 'result');

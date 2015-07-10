@@ -1,0 +1,6 @@
+/* 通用样式 */
+.util-hidden {display: none;}
+.util-small {font-size: 10px;}
+.util-gray {color: #999;}
+.util-font-normal {font-weight: normal;}
+#wrap {margin: 10px;}
