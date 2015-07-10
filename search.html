@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Search Package from TAONPM</title>
+        <title>NPM Package搜索</title>
         <link rel="stylesheet" type="text/css" href="css/main.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
         <script src="js/jquery.min.js"></script>
@@ -36,7 +36,7 @@
         </div>
         <textarea class="util-hidden" id="page-tpl">
             {#match}
-                <h2 id="match-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></h2>
+                <h2 id="match-name"><a href="{packageURLPrefix}{name}" target="_blank">{name}</a></h2>
                 <p id="match-description">{description}</p>
             {/match}
 
@@ -55,7 +55,7 @@
                 <div role="tabpanel" class="tab-pane{#keywordsActive} active{/keywordsActive}" id="keywords">
                     <table class="table table-striped" id="keywords-result">
                         {#keywords}
-                        <h2 class="package-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></h2>
+                        <h2 class="package-name"><a href="{packageURLPrefix}{name}" target="_blank">{name}</a></h2>
                         <p class="package-description">{description}</p>
                         {/keywords}
                     </table>
@@ -64,7 +64,7 @@
                 {#hasPackages}
                 <div role="tabpanel" class="tab-pane{#packagesActive} active{/packagesActive}" id="package">
                     {#packages}
-                    <h2 class="package-name"><a href="http://web.npm.alibaba-inc.com/package/{name}" target="_blank">{name}</a></h2>
+                    <h2 class="package-name"><a href="{packageURLPrefix}{name}" target="_blank">{name}</a></h2>
                     <p class="package-description">{description}</p>
                     {/packages}
                 </div>

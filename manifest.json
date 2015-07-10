@@ -3,8 +3,8 @@
     "name": "搜TaoNPM",
     "short_name": "搜包",
     "author": "Pang Xie",
-    "version": "0.1.3",
-    "description": "在TaoNPM上搜索指定的包. 可以使用关键词或者包名做搜索条件.",
+    "version": "0.1.4",
+    "description": "在TaoNPM上搜索指定的包.",
     "homepage_url": "https://github.com/yPangXie/package-search",
     "browser_action": {
         "default_title": "搜TaoNPM",
@@ -17,9 +17,7 @@
     },
     "permissions": [
         "https://*/*",
-        "http://*/*",
-        "http://localhost/",
-        "http://127.0.0.1/"
+        "http://*/*"
     ],
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
