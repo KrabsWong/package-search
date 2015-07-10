@@ -3,7 +3,7 @@
     "name": "搜P",
     "short_name": "搜P",
     "author": "Pang Xie",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "在xNPM上搜索包.",
     "homepage_url": "https://github.com/yPangXie/package-search",
     "options_ui": {
