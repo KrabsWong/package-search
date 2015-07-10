@@ -1,17 +1,17 @@
 {
     "manifest_version": 2,
-    "name": "搜TaoNPM",
-    "short_name": "搜包",
+    "name": "搜P",
+    "short_name": "搜P",
     "author": "Pang Xie",
     "version": "0.2.0",
-    "description": "在TaoNPM上搜索指定的包.",
+    "description": "在xNPM上搜索包.",
     "homepage_url": "https://github.com/yPangXie/package-search",
     "options_ui": {
         "page": "options.html",
         "chrome_style": true
     },
     "browser_action": {
-        "default_title": "搜TaoNPM",
+        "default_title": "搜Package",
         "default_icon": "image/icon_search_48.png",
         "default_popup": "search.html"
     },
