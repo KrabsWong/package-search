@@ -31,9 +31,9 @@ $(function() {
                 $('#timeout-tips').show();
             }, 5000);
 
-            $.getJSON(requestURL.replace(/\{key\}/g, searchString), function(data) {
+            $.getJSON(requestURL.replace(/\{key\}/g, searchString), function(responseData) {
                 sendingRequest = false;
-                renderPage(searchString, data);
+                renderPage(addFields(searchString, responseData));
 
                 /* 隐藏loading层 */
                 $('#loading').hide();
@@ -44,17 +44,7 @@ $(function() {
 });
 
 /* 处理结果, 渲染模板 */
-function renderPage(searchString, data) {
-    data.keywords && data.keywords.forEach(function(item) {
-        item.url = packageURL.replace(/\{key\}/g, searchString);
-        item.oUrl = npmOfficialPackageURL.replace(/\{key\}/g, searchString);
-    });
-
-    data.packages && data.packages.forEach(function(item) {
-        item.url = packageURL.replace(/\{key\}/g, searchString);
-        item.oUrl = npmOfficialPackageURL.replace(/\{key\}/g, searchString);
-    });
-
+function renderPage(data) {
     let dataObj = {
         hasResult: data.keywords.length || data.packages.length || data.match,
         hasMatch: data.match,
@@ -74,4 +64,21 @@ function renderPage(searchString, data) {
     dust.render('result', dataObj, function(err, out) {
         $('#result').html(out);
     });
+}
+
+/* 增加字段 */
+function addFields(searchString, data) {
+    var keys = ['packages', 'keywords', 'match'];
+    keys.forEach(function(key) {
+        if(data[key] && Object.prototype.toString.call(data[key]) != "[object Array]") {
+            data[key] = [data[key]];
+        }
+
+        data[key] && data[key].forEach(function(item) {
+            item.url = packageURL.replace(/\{key\}/g, searchString);
+            item.oUrl = npmOfficialPackageURL.replace(/\{key\}/g, searchString);
+        });
+    });
+
+    return data;
 }

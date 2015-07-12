@@ -40,7 +40,12 @@
         </div>
         <textarea class="util-hidden" id="page-tpl">
             {#match}
-                <h2 id="match-name"><a href="{url}" target="_blank">{name}</a></h2>
+                <h2 id="match-name">
+                    <a href="{url}" target="_blank">{name}</a>
+                    <a href="{oUrl}" target="_blank">
+                        <img src="image/npm-official-icon.png" class="npm-official-icon" title="NPM官方地址" />
+                    </a>
+                </h2>
                 <p id="match-description">{description}</p>
             {/match}
 
