@@ -5,6 +5,7 @@
 
 let requestURL = 'http://npm.taobao.org/browse/keyword/{key}?type=json';
 let packageURL = 'http://npm.taobao.org/package/{key}';
+let npmOfficialPackageURL = 'https://www.npmjs.com/package/{key}';
 
 /* 获取配置信息 */
 chrome.storage.sync.get({
@@ -46,10 +47,12 @@ $(function() {
 function renderPage(searchString, data) {
     data.keywords && data.keywords.forEach(function(item) {
         item.url = packageURL.replace(/\{key\}/g, searchString);
+        item.oUrl = npmOfficialPackageURL.replace(/\{key\}/g, searchString);
     });
 
     data.packages && data.packages.forEach(function(item) {
         item.url = packageURL.replace(/\{key\}/g, searchString);
+        item.oUrl = npmOfficialPackageURL.replace(/\{key\}/g, searchString);
     });
 
     let dataObj = {

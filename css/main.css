@@ -8,6 +8,7 @@ body {width: 370px;}
 #match-description {font-size: 14px; color: #999; margin-bottom: 20px;}
 .package-name {color: #333; font-weight: bold; font-size: 18px;}
 .package-description {color: #999;}
+.npm-official-icon {width: 20px; margin-left: 10px;}
 #timeout-tips {position: absolute; bottom: 5px; left: 20px; right: 20px;}
 #thanks {text-align: center; font-size: 10px;}
 #thanks, #thanks a {color: #AAA;}

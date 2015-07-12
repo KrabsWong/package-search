@@ -59,7 +59,12 @@
                 <div role="tabpanel" class="tab-pane{#keywordsActive} active{/keywordsActive}" id="keywords">
                     <table class="table table-striped" id="keywords-result">
                         {#keywords}
-                        <h2 class="package-name"><a href="{url}" target="_blank">{name}</a></h2>
+                        <h2 class="package-name">
+                            <a href="{url}" target="_blank">{name}</a>
+                            <a href="{oUrl}" target="_blank">
+                                <img src="image/npm-official-icon.png" class="npm-official-icon" title="NPM官方地址" />
+                            </a>
+                        </h2>
                         <p class="package-description">{description}</p>
                         {/keywords}
                     </table>
@@ -68,7 +73,12 @@
                 {#hasPackages}
                 <div role="tabpanel" class="tab-pane{#packagesActive} active{/packagesActive}" id="package">
                     {#packages}
-                    <h2 class="package-name"><a href="{url}" target="_blank">{name}</a></h2>
+                    <h2 class="package-name">
+                        <a href="{url}" target="_blank">{name}</a>
+                        <a href="{oUrl}" target="_blank">
+                            <img src="image/npm-official-icon.png" class="npm-official-icon" title="NPM官方地址" />
+                        </a>
+                    </h2>
                     <p class="package-description">{description}</p>
                     {/packages}
                 </div>
