@@ -8,6 +8,10 @@ TAONPM开放了jsonp请求的接口`http://npm.taobao.org/browse/keyword/xxoo?ty
 
 ![插件截图](https://raw.githubusercontent.com/yPangXie/package-search/master/extension-screenshot.png)
 
+## 说明
+
+请求超时时间为5秒. 若超时需要重新打开插件, 尝试搜索
+
 ## 更新日志
 - 0.2.3
     - 修复match到得package, 连接错误. 未增加npm官方package地址.
