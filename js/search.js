@@ -19,7 +19,7 @@ chrome.storage.sync.get({
 $(function() {
     let sendingRequest = false;
     $('#doSearch').click(function() {
-        let searchString = $('#keywordsOrName').val();
+        let searchString = ($('#keywordsOrName').val() || '').trim();
 
         /* 避免重复发请求 */
         if(searchString && !sendingRequest) {
